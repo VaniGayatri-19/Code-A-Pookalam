@@ -1,0 +1,315 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>POOKLAM BY VG</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background:ivory;
+    }
+
+    /* Thin dark green ring (hugging the outer ring) */
+    .green-ring {
+      width: 660px;
+      height: 660px;
+      border-radius: 50%;
+      border: 6px solid darkgreen;
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Outer ring (27 alternating slices) */
+    .outer-ring {
+      width: 659px;
+      height: 659px;
+      border-radius: 50%;
+      background: conic-gradient(
+        red 0deg 13.33deg,
+        orange 13.33deg 26.66deg,
+        yellow 26.66deg 40deg,
+        red 40deg 53.33deg,
+        orange 53.33deg 66.66deg,
+        yellow 66.66deg 80deg,
+        red 80deg 93.33deg,
+        orange 93.33deg 106.66deg,
+        yellow 106.66deg 120deg,
+        red 120deg 133.33deg,
+        orange 133.33deg 146.66deg,
+        yellow 146.66deg 160deg,
+        red 160deg 173.33deg,
+        orange 173.33deg 186.66deg,
+        yellow 186.66deg 200deg,
+        red 200deg 213.33deg,
+        orange 213.33deg 226.66deg,
+        yellow 226.66deg 240deg,
+        red 240deg 253.33deg,
+        orange 253.33deg 266.66deg,
+        yellow 266.66deg 280deg,
+        red 280deg 293.33deg,
+        orange 293.33deg 306.66deg,
+        yellow 306.66deg 320deg,
+        red 320deg 333.33deg,
+        orange 333.33deg 346.66deg,
+        yellow 346.66deg 360deg
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Main Rangoli base */
+      .rangoli {
+       width: 600px;
+       height: 600px;
+       border-radius: 50%;
+       background: #8E4585; /* Vadamalli Purple */
+       position: relative;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       z-index: 3;
+      }
+
+    /* Outer Petals (orange) */
+    .petal {
+      width: 120px;
+      height: 300px;
+      background: orange;
+      border-radius: 50%;
+      position: absolute;
+      transform-origin: center bottom;
+      top: 50%;
+      left: 50%;
+      z-index: 4;
+    }
+    .p1 { transform: translate(-50%, -100%) rotate(0deg); }
+    .p2 { transform: translate(-50%, -100%) rotate(45deg); }
+    .p3 { transform: translate(-50%, -100%) rotate(90deg); }
+    .p4 { transform: translate(-50%, -100%) rotate(135deg); }
+    .p5 { transform: translate(-50%, -100%) rotate(180deg); }
+    .p6 { transform: translate(-50%, -100%) rotate(225deg); }
+    .p7 { transform: translate(-50%, -100%) rotate(270deg); }
+    .p8 { transform: translate(-50%, -100%) rotate(315deg); }
+
+    /* Middle Petals (red, tucked between orange) */
+    .mid-petal {
+      width: 110px;
+      height: 300px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+      transform-origin: center bottom;
+      top: 50%;
+      left: 50%;
+      z-index: 3;
+    }
+    .mp1 { transform: translate(-50%, -100%) rotate(22.5deg); }
+    .mp2 { transform: translate(-50%, -100%) rotate(67.5deg); }
+    .mp3 { transform: translate(-50%, -100%) rotate(112.5deg); }
+    .mp4 { transform: translate(-50%, -100%) rotate(157.5deg); }
+    .mp5 { transform: translate(-50%, -100%) rotate(202.5deg); }
+    .mp6 { transform: translate(-50%, -100%) rotate(247.5deg); }
+    .mp7 { transform: translate(-50%, -100%) rotate(292.5deg); }
+    .mp8 { transform: translate(-50%, -100%) rotate(337.5deg); }
+
+    /* Inner Petals (green pinwheel style) */
+    .inner-petal {
+      position: absolute;
+      width: 40px;
+      height: 70px;
+      background: darkgreen;
+      border-radius: 80% 20% 80% 20%;
+      transform-origin: center bottom;
+      top: 50%;
+      left: 50%;
+      z-index: 5;
+      opacity: 0.95;
+    }
+    .ip1 { transform: translate(-50%, -100%) rotate(0deg) skewX(-25deg); }
+    .ip2 { transform: translate(-50%, -100%) rotate(60deg) skewX(-25deg); }
+    .ip3 { transform: translate(-50%, -100%) rotate(120deg) skewX(-25deg); }
+    .ip4 { transform: translate(-50%, -100%) rotate(180deg) skewX(-25deg); }
+    .ip5 { transform: translate(-50%, -100%) rotate(240deg) skewX(-25deg); }
+    .ip6 { transform: translate(-50%, -100%) rotate(300deg) skewX(-25deg); }
+
+    /* Lotus petals (outer pink) */
+    .lotus-petal {
+      width: 30px;
+      height: 70px;
+      background: pink;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center bottom;
+      z-index: 6;
+    }
+    .lp1 { transform: translate(-50%, -100%) rotate(0deg); }
+    .lp2 { transform: translate(-50%, -100%) rotate(45deg); }
+    .lp3 { transform: translate(-50%, -100%) rotate(90deg); }
+    .lp4 { transform: translate(-50%, -100%) rotate(135deg); }
+    .lp5 { transform: translate(-50%, -100%) rotate(180deg); }
+    .lp6 { transform: translate(-50%, -100%) rotate(225deg); }
+    .lp7 { transform: translate(-50%, -100%) rotate(270deg); }
+    .lp8 { transform: translate(-50%, -100%) rotate(315deg); }
+
+    /* Inner lotus petals */
+    .lotus-petal-inner {
+      width: 20px;
+      height: 50px;
+      background: rgb(255, 182, 193);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center bottom;
+      z-index: 7;
+    }
+    .li1 { transform: translate(-50%, -100%) rotate(0deg); }
+    .li2 { transform: translate(-50%, -100%) rotate(60deg); }
+    .li3 { transform: translate(-50%, -100%) rotate(120deg); }
+    .li4 { transform: translate(-50%, -100%) rotate(180deg); }
+    .li5 { transform: translate(-50%, -100%) rotate(240deg); }
+    .li6 { transform: translate(-50%, -100%) rotate(300deg); }
+
+    /* Lotus center */
+    .center {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      border-radius: 50%;
+      z-index: 8;
+    }
+
+    /* Inner ethnic concentric circles */
+    .inner-ring {        /* purplish pink */
+      width: 195px; height: 195px; border-radius: 50%;
+      border: 3px solid rgb(219, 112, 147);
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); z-index: 7;
+    }
+    .inner-ring-divider { /* thin white */
+      width: 200px; height: 200px; border-radius: 50%;
+      border: 2px solid white;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); z-index: 6;
+    }
+    .inner-ring-2 {      /* green */
+      width: 205px; height: 205px; border-radius: 50%;
+      border: 3px solid darkgreen;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); z-index: 5;
+    }
+
+    /* ===== Yellow ovals INSIDE orange petals (with inner white ovals) ===== */
+    .yellow-oval {
+      width: 44px;              /* slim */
+      height: 140px;            /* tall */
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform-origin: center center;   /* rotate around its center */
+      z-index: 6;              /* above orange petals */
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* inner white oval you can style/resize as you like */
+    .yellow-oval .oval-inner {
+      width: 32px;
+      height: 70px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    /* Place each oval along the axis of its matching orange petal */
+    .yo1 { transform: translate(-50%, -50%) rotate(0deg)   translateY(-175px); }
+    .yo2 { transform: translate(-50%, -50%) rotate(45deg)  translateY(-175px); }
+    .yo3 { transform: translate(-50%, -50%) rotate(90deg)  translateY(-175px); }
+    .yo4 { transform: translate(-50%, -50%) rotate(135deg) translateY(-175px); }
+    .yo5 { transform: translate(-50%, -50%) rotate(180deg) translateY(-175px); }
+    .yo6 { transform: translate(-50%, -50%) rotate(225deg) translateY(-175px); }
+    .yo7 { transform: translate(-50%, -50%) rotate(270deg) translateY(-175px); }
+    .yo8 { transform: translate(-50%, -50%) rotate(315deg) translateY(-175px); }
+
+    /* Tip: tweak translateY to nudge deeper/shallower inside petals */
+  </style>
+</head>
+<body>
+  <div class="green-ring"></div>
+  <div class="outer-ring">
+    <div class="rangoli">
+      <!-- Ethnic concentric circles -->
+      <div class="inner-ring-2"></div>
+      <div class="inner-ring-divider"></div>
+      <div class="inner-ring"></div>
+
+      <!-- Yellow ovals inside orange petals (each with a nested white oval) -->
+      <div class="yellow-oval yo1"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo2"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo3"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo4"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo5"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo6"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo7"><div class="oval-inner"></div></div>
+      <div class="yellow-oval yo8"><div class="oval-inner"></div></div>
+
+      <!-- Outer petals -->
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
+      <div class="petal p6"></div>
+      <div class="petal p7"></div>
+      <div class="petal p8"></div>
+
+      <!-- Middle petals -->
+      <div class="mid-petal mp1"></div>
+      <div class="mid-petal mp2"></div>
+      <div class="mid-petal mp3"></div>
+      <div class="mid-petal mp4"></div>
+      <div class="mid-petal mp5"></div>
+      <div class="mid-petal mp6"></div>
+      <div class="mid-petal mp7"></div>
+      <div class="mid-petal mp8"></div>
+
+      <!-- Inner green pinwheel petals -->
+      <div class="inner-petal ip1"></div>
+      <div class="inner-petal ip2"></div>
+      <div class="inner-petal ip3"></div>
+      <div class="inner-petal ip4"></div>
+      <div class="inner-petal ip5"></div>
+      <div class="inner-petal ip6"></div>
+
+      <!-- Lotus petals -->
+      <div class="lotus-petal lp1"></div>
+      <div class="lotus-petal lp2"></div>
+      <div class="lotus-petal lp3"></div>
+      <div class="lotus-petal lp4"></div>
+      <div class="lotus-petal lp5"></div>
+      <div class="lotus-petal lp6"></div>
+      <div class="lotus-petal lp7"></div>
+      <div class="lotus-petal lp8"></div>
+
+      <!-- Lotus inner petals -->
+      <div class="lotus-petal-inner li1"></div>
+      <div class="lotus-petal-inner li2"></div>
+      <div class="lotus-petal-inner li3"></div>
+      <div class="lotus-petal-inner li4"></div>
+      <div class="lotus-petal-inner li5"></div>
+      <div class="lotus-petal-inner li6"></div>
+
+      <!-- Lotus center -->
+      <div class="center"></div>
+    </div>
+  </div>
+</body>
+</html>
