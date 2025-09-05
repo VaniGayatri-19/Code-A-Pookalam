@@ -5,7 +5,7 @@ Welcome to CODE-A-പൂക്കളം, a creative coding challenge scheduled f
 
 
 ### Your Details
-- [Name] - [Branch] - [Semester]
+- [Vani Gayatri.S.R] - [ECE] - [S1]
 
 
 
@@ -14,11 +14,13 @@ Welcome to CODE-A-പൂക്കളം, a creative coding challenge scheduled f
 
 
 ### Pookalam Description
-Brief description about your pookalam. What makes it special and different.
+Pookalams are intricate, colourful arrangements of fresh flower petals and leaves, resembling a floral rangoli, created in Kerala, India, especially during the Onam festival. My pooklam is is an integration of various colours like yellow,orange,white etc just like a traditional pooklam
+
 
 
 
 ### Technologies Used 
+CSS and HTML
 
 
 ### Video explaining How you build the pookalam
@@ -29,5 +31,5 @@ Brief description about your pookalam. What makes it special and different.
 
 
 
-Happy Onam ! <br>
+Happy Onam! <br>
 Made with ❤️ at TinkerHub LBSITW
