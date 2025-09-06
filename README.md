@@ -11,23 +11,25 @@ Welcome to CODE-A-പൂക്കളം, a creative coding challenge scheduled f
 
 ### Hosted Pookalam Link
 
-
+https://code-a-pookalam-beta.vercel.app/
 
 ### Pookalam Description
-Pookalams are intricate, colourful arrangements of fresh flower petals and leaves, resembling a floral rangoli, created in Kerala, India, especially during the Onam festival. My pooklam is is an integration of various colours like yellow,orange,white etc just like a traditional pooklam
+Pookalam is an intricate, colourful arrangement of fresh flower petals and leaves, resembling a floral rangoli, created in Kerala, India, especially during the Onam festival. My pooklam is an integration of various colours like yellow, orange, white etc, just like a traditional pooklam
 
 
 
 
 ### Technologies Used 
-CSS and HTML
+VERSEL, GIT, CSS and HTML
 
 
-### Video explaining How you build the pookalam
+### Video explaining how you build the pookalam
 
+<img width="1827" height="917" alt="snip" src="https://github.com/user-attachments/assets/96b564c0-d324-41f7-8bad-f426239cc582" />
 
 
 ### Screenshots
+<img width="1827" height="917" alt="snip" src="https://github.com/user-attachments/assets/fe89144f-af99-4903-ac6a-c8c285f3ef0b" />
 
 
 
